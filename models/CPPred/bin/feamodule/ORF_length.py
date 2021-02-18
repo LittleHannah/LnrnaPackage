@@ -1,13 +1,13 @@
 import sys
-from string import maketrans
-import ORF
+#from string import maketrans
+import models.CPPred.bin.feamodule.ORF as ORF
 
 def extract_feature_from_seq(seq,stt,stp):
 	'''extract features of sequence from fasta entry'''
 	
 	stt_coden = stt.strip().split(',')
 	stp_coden = stp.strip().split(',')
-	transtab = maketrans("ACGTNX","TGCANX")
+	transtab = str.maketrans("ACGTNX","TGCANX")
 	mRNA_seq = seq.upper()
 	mRNA_size = len(seq)
 	tmp = ORF.ExtractORF(mRNA_seq)

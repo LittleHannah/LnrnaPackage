@@ -1,10 +1,10 @@
 import os,sys
-from feamodule import CTD
-from feamodule import ProtParam as PP
-from feamodule import ORF_length as len
+from models.CPPred.bin.feamodule import CTD
+from models.CPPred.bin.feamodule import ProtParam as PP
+from models.CPPred.bin.feamodule import ORF_length as len
 import Bio.SeqIO as Seq
-from feamodule import fickett
-from feamodule  import FrameKmer
+from models.CPPred.bin.feamodule import fickett
+from models.CPPred.bin.feamodule  import FrameKmer
 import argparse as agp
 
 def coding_nocoding_potential(input_file):
@@ -39,10 +39,10 @@ def output_feature(seq_file,hex_file,species):
 		if species == "Integrated":
 			tem = [Cov,inte_fe,GC,insta_fe,Len,T0,fickett_fe,G2,C3,PI_fe,A3,C1,G3,hexamer,TG,G1,TC,A0,A1,AC,C2,G0,T4,C0,A4,G,A2,T,T3,G4,C4,gra_fe,T2,AG,AT,T1,A,C]
 			feature.write("\t".join(map(str,[seqid,Cov,inte_fe,GC,insta_fe,Len,T0,fickett_fe,G2,C3,PI_fe,A3,C1,G3,hexamer,TG,G1,TC,A0,A1,AC,C2,G0,T4,C0,A4,G,A2,T,T3,G4,C4,gra_fe,T2,AG,AT,T1,A,C]))+"\n")
-		print >> tmp, out_label,
+		print(tmp, out_label),
 		for label,item in enumerate(tem):
-			print >> tmp, str(label+1)+':'+str(item),
-		print >> tmp
+			print(tmp, str(label+1)+':'+str(item)),
+		print(tmp)
 	tmp.close()
 
 def predict(range_file,model_file):

@@ -24,7 +24,7 @@ class ExtractORF:
 		stop_codons = stop_codon
 		while True:
 			try:
-				codon,index = codon_posi.next()
+				codon,index = next(codon_posi)
 			except StopIteration:
 				break
 			if codon in start_codons and codon not in stop_codons:
@@ -32,7 +32,7 @@ class ExtractORF:
 				end = False
 				while True:
 					try:
-						codon,index = codon_posi.next()
+						codon,index = next(codon_posi)
 					except StopIteration:
 						end = True
 						integrity = -1

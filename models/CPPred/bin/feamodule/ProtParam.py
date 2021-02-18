@@ -1,7 +1,7 @@
 import sys
 import re
 from Bio.Seq import Seq
-from ORF import ExtractORF
+from models.CPPred.bin.feamodule.ORF import ExtractORF
 from Bio.SeqUtils import ProtParam
 
 def mRNA_translate(mRNA):
